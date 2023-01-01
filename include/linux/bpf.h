@@ -1074,7 +1074,7 @@ struct bpf_dispatcher {
 #endif
 };
 
-static __always_inline __nocfi unsigned int bpf_dispatcher_nop_func(
+static __visible __nocfi unsigned int bpf_dispatcher_nop_func(
 	const void *ctx,
 	const struct bpf_insn *insnsi,
 	bpf_func_t bpf_func)
