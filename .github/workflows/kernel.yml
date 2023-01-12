@@ -23,7 +23,10 @@ jobs:
     - name: Configure
       run: make wsl_defconfig
     - name: Build Kernel
-      run: make -j$(nproc --all)
+      run: |
+        export KBUILD_BUILD_USER="mvaisakh"
+        export KBUILD_BUILD_HOST="GithubActionsCI"
+        make -j$(nproc --all)
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
