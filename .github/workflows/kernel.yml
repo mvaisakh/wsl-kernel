@@ -28,7 +28,7 @@ jobs:
     - name: Build Kernel
       run: |
         export KBUILD_BUILD_USER="mvaisakh"
-        export KBUILD_BUILD_HOST="GithubActionsCI"
+        export KBUILD_BUILD_HOST="statixos"
         make -j$(nproc --all)
         echo "kversion=string arch/x86_64/boot/bzImage | grep mvaisakh | grep gcc" >> $GITHUB_ENV
     - name: Create Release
