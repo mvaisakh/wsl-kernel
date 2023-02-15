@@ -10,7 +10,6 @@ jobs:
        image: fedora:rawhide
 
     steps:
-    - uses: actions/checkout@v2
     - name: Setup build environment
       run: |
         sudo dnf groupinstall "Development tools" -y
@@ -23,6 +22,7 @@ jobs:
       run: |
         ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime
         echo "date=$(/bin/date -u '+%d%m%Y%I%M')" >> $GITHUB_ENV
+    - uses: actions/checkout@v2
     - name: Configure
       run: make wsl_defconfig
     - name: Build Kernel
