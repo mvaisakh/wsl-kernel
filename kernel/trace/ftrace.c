@@ -7585,13 +7585,13 @@ out:
  * arch_ftrace_ops_list_func.
  */
 #if ARCH_SUPPORTS_FTRACE_OPS
-void arch_ftrace_ops_list_func(unsigned long ip, unsigned long parent_ip,
+__visible_on_lto void arch_ftrace_ops_list_func(unsigned long ip, unsigned long parent_ip,
 			       struct ftrace_ops *op, struct ftrace_regs *fregs)
 {
 	__ftrace_ops_list_func(ip, parent_ip, NULL, fregs);
 }
 #else
-void arch_ftrace_ops_list_func(unsigned long ip, unsigned long parent_ip)
+__visible_on_lto void arch_ftrace_ops_list_func(unsigned long ip, unsigned long parent_ip)
 {
 	__ftrace_ops_list_func(ip, parent_ip, NULL, NULL);
 }
