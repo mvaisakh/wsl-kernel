@@ -22,7 +22,7 @@ jobs:
       run: |
         ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime
         echo "date=$(/bin/date -u '+%d%m%Y%I%M')" >> $GITHUB_ENV
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@main
     - name: Create release asset dir
       run: mkdir -p releases
     - name: Configure
